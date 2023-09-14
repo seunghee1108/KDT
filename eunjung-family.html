@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">
+    <!-- 은정씨에게 기초데이터를 받았다. -->
+    <!-- 은정씨 언니 오빠들 모두 li 태그에 담아보자. -->
+  </div>
+  <script>
+    let eunjungFamily = {
+      male : "이경배",
+      female : ["이은혜", "이은주", "이은정"],
+      cousin : [],
+    }
+    let keyNames = Object.keys(eunjungFamily);
+    console.log(keyNames);
+
+    console.log(eunjungFamily[keyNames[0]]);
+    for(let i = 0 ; i < eunjungFamily[keyNames[1]].length; i++) {
+      console.log(eunjungFamily[keyNames[1]][i]);
+      //위와 똑같은 방법임.
+      console.log(eunjungFamily.female[i]);
+    }
+    let namesArray =  [];
+    namesArray[0] = eunjungFamily[keyNames[0]];//이경배
+    namesArray[1] = eunjungFamily[keyNames[1]][0];//이은혜
+    namesArray[2] = eunjungFamily[keyNames[1]][1];//이은주
+    namesArray[3] = eunjungFamily[keyNames[1]][2];//이은정
+     console.log(namesArray);
+    
+     let root = document.getElementById('root');
+     let makeUlTag = document.createElement('ul');
+     makeUlTag.innerText = "은정이네 언니오빠";
+     root.appendChild(makeUlTag);
+     
+     for(let i = 0; i < namesArray.length; i++){
+      let makeLiTag = document.createElement('li');
+      makeUlTag.appendChild(makeLiTag);
+      makeLiTag.textContent = namesArray[i];      
+     }
+     console.log(makeUlTag);
+     
+     
+  </script>
+</body>
+
